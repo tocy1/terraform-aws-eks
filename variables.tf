@@ -439,3 +439,8 @@ variable "openid_connect_audiences" {
   default     = []
 }
 
+variable "cluster_additional_security_group_ids" {
+  description = "List of additional, externally created security group IDs to attach to the cluster control plane"
+  type        = list(string)
+  default     = []
+}

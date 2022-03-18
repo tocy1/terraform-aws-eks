@@ -17,7 +17,7 @@ resource "aws_eks_cluster" "this" {
   version                   = var.cluster_version
 
   vpc_config {
-    security_group_ids      = compact([local.cluster_security_group_id])
+    security_group_ids      = concat(compact([local.cluster_security_group_id]),var.cluster_additional_security_group_ids)
     subnet_ids              = var.eks_subnets
     endpoint_private_access = var.cluster_endpoint_private_access
     endpoint_public_access  = var.cluster_endpoint_public_access
